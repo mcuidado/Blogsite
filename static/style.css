@@ -1,0 +1,24 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root{
+    --blue-dark:#052F5F;
+    --blue-light:#005377;
+    --green-main:#06A77D;
+    --tan:#D5C67A;
+    --gold:#F1A208;
+}
+
+body {
+    background-color: var(--blue-dark);
+}
+
+.container, [class^="sect-"]{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
