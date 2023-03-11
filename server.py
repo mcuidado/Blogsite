@@ -9,22 +9,32 @@ from blog import Blogs
 app = Flask(__name__)
 
 blogs = Blogs()
-blogs_data = blogs.get_all_blog_data()
+
+BLOG_DATA = blogs.get_all_blog_data()
+
+FOOTER_DATA = {
+    "year":datetime.today().year,
+    "name": "Matthew Hippensteel"
+}
+
+# url_for("static", filename="style.css")
 
 @app.route("/")
 def home():
-    return render_template("index.html", year=datetime.today().year)
+    return render_template("index.html", data=BLOG_DATA, footer=FOOTER_DATA)
 
 @app.route("/blog")
 def read_all_blogs():
-    blog_url = "https://api.npoint.io/e2c3d27dfa84356b27ef"
-    return render_template("blogsList.html", data=blogs_data)
+    # blog_url = "https://api.npoint.io/e2c3d27dfa84356b27ef"
+    return render_template("blogsList.html", data=BLOG_DATA, footer=FOOTER_DATA)
 
 @app.route("/blog/<int:id>")
 def read_selected_blog(id):
-    return render_template("blogPost.html", blog=blogs_data[id - 1])
+    return render_template("blogPost.html", blog=BLOG_DATA[id - 1], data=BLOG_DATA, footer=FOOTER_DATA)
 
-
+@app.route("/about")
+def about_me():
+    return render_template("about.html", data=BLOG_DATA, footer=FOOTER_DATA)
 
 if __name__ == "__main__":
     app.run(debug=True)
