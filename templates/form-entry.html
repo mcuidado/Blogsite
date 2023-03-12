@@ -1,0 +1,23 @@
+{% include "components/header.html" %}
+<body>
+    {% include "components/navigation.html" %}
+    <div class="container">
+        <div class="row justify-content-center">
+            {% if form_data %}
+                <div class="col-6 text-center">
+                    {{ form_data["name"] }}
+                    {{ form_data["email"] }}
+                    {{ form_data["phoneNumber"] }}
+                    {{ form_data["messageArea"] }}
+                </div>
+            {% else %}
+                <p class="h2">
+                    {{ message }}
+                </p>
+            {% endif %}
+        </div>
+    </div>
+    
+    {% include "components/footer.html" %}
+</body>
+</html>
