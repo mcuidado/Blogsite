@@ -1,8 +1,8 @@
 
 from smtplib import SMTP, SMTPAuthenticationError
 
-EMAIL="michaelcuidado081@gmail.com"
-APP_PASS="vjwgsezdsqaktsfz"
+EMAIL="recipient@email.com"
+APP_PASS="PASS"
 
 class Contact():
     def __init__(self, name, email, phone, message):
